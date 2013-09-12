@@ -34,20 +34,25 @@ public class Main {
 
 		final GoodreadsControllerImpl goodreadsController;
 		goodreadsController=new GoodreadsControllerImpl();
-		List<Book> listOfBooks = goodreadsController.searchBookByTitle("Dune");
+		Book b = goodreadsController.searchBookByTitle("Taylor");
+		System.out.println(" The title of the Book "+b.getTitle());
 		 Book book = null;
 	        try {
-	                        book = goodreadsController.searchBookByISBN("0441172717");
+	                      // book = goodreadsController.searchBookByISBN("0441172717");
 	                       
-	                } catch (MalformedURLException e) {
+	                } catch (Exception e) {
 	                        e.printStackTrace();
-	                } catch (IOException e) {
-	                        e.printStackTrace();
+	                
 	                }
 	                System.out.println("\n\n\n\n\n");
-	                System.out.println(listOfBooks);
+	         
+	                //   System.out.println(listOfBooks);
+	            // for(Book b : listOfBooks){
+	            	 System.out.println("Desc"+b.getDescription());
+	           //  }
 	                System.out.println("\n\n\n\n\n");
-	                System.out.println(book);
+	              //  System.out.println(book.getDescription());
 	}
 
 }
+ 

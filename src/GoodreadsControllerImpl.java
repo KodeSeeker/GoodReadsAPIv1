@@ -16,19 +16,17 @@ public class GoodreadsControllerImpl implements GoodreadsController {
             goodreadsParser = new GoodreadsParser();
     }
    
-    public List<Book> searchBookByTitle(String searchfield) {
+    public Book searchBookByTitle(String searchfield) {
             StringBuffer sb = new StringBuffer();
             //construct api call
             sb.append(goodreadsAPI).append("book/title?format=xml&key=").append(goodreadsKey).append("&title=").append(searchfield);
             System.out.println("Search Book by Title"+sb.toString());
             try {
-                    return goodreadsParser.parseBookWithReviews(new URL(sb.toString()));
-            } catch (MalformedURLException e) {
-                    e.printStackTrace();
-                    return new ArrayList<Book>();
+                    return goodreadsParser.parseBookWithReviews((sb.toString()));
+            
             } catch (RuntimeException e) {
                     e.printStackTrace();
-                    return new ArrayList<Book>();
+                    return new Book();
             }
     }
 
@@ -38,12 +36,13 @@ public class GoodreadsControllerImpl implements GoodreadsController {
     }
 
     public Book searchBookByISBN(String searchField) throws MalformedURLException, IOException {
-            StringBuffer sb = new StringBuffer();
+/*            StringBuffer sb = new StringBuffer();
             //construct api call
             sb.append(goodreadsAPI).append("book/isbn?format=xml&isbn=").append(searchField).append("&key=").append(goodreadsKey);
            System.out.println("Search Book By ISBN"+sb.toString());
             try {
-                    return goodreadsParser.parseBookWithReviews(new URL(sb.toString())).get(0);
+            	System.out.println("URL for XML parsing"+sb.toString());
+            	return goodreadsParser.parseBookWithReviews(new URL(sb.toString())).get(0);
             } catch (MalformedURLException e) {
                     e.printStackTrace();
                     return null;
@@ -52,6 +51,8 @@ public class GoodreadsControllerImpl implements GoodreadsController {
                     return null;
             }
 
+   */
+    	return null;
     }
    
    
